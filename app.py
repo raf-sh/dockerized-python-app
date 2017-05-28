@@ -1,6 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Dockersized Flask is running'
+    return render_template(
+        'index.html',
+        title='Dockerized Flask is running'
+    )
+
+app.run(debug=True)
